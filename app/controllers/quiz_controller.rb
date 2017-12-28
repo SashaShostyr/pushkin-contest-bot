@@ -20,8 +20,8 @@ class QuizController < ApplicationController
       solve_level1
     when 2
       solve_level2
-    when 3
-      solve_level3
+    when 3..4
+      solve_level34
     end
   end
 
@@ -33,7 +33,7 @@ class QuizController < ApplicationController
     DATA_LEVEL2[delete_punctuation(@question)]
   end
 
-  def solve_level3
+  def solve_level34
     lines = @question.split("\n")
     answers = []
     lines.each do |line|
