@@ -7,7 +7,7 @@ class QuizController < ApplicationController
 
   def new
     @question = params[:question]
-    @task_id = params[:task_id]
+    @task_id = params[:id]
     @level = params[:level]
     @answer = give_answer
     Question.create(question: @question, answer: @answer, task_id: @task_id, level: @level)
