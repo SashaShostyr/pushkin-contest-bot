@@ -12,9 +12,9 @@ DATA_LEVEL1 = {}
 data.each do |poem|
   poem[1].each do |line|
     if poem[0].match(/[\*]/).nil?
-      DATA_LEVEL1[line] = poem[0]
+      DATA_LEVEL1[delete_punctuation(line)] = poem[0]
     elsif
-      DATA_LEVEL1[line] = poem[1][0]
+      DATA_LEVEL1[delete_punctuation(line)] = poem[1][0]
     end
   end
 end

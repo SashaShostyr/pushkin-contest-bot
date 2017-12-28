@@ -10,8 +10,8 @@ class QuizController < ApplicationController
     @task_id = params[:id]
     @level = params[:level]
     @answer = give_answer
-    Question.create(question: @question, answer: @answer, task_id: @task_id, level: @level)
     send_post(@answer, @task_id)
+    Question.create(question: @question, answer: @answer, task_id: @task_id, level: @level)
   end
   
   def give_answer
@@ -22,7 +22,7 @@ class QuizController < ApplicationController
   end
 
   def solve_level1
-    DATA_LEVEL1[@question]
+    DATA_LEVEL1[delete_punctuation(@question)]
   end
 
   def quiz_params
