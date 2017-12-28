@@ -18,11 +18,17 @@ class QuizController < ApplicationController
     case @level.to_i
     when 1
       solve_level1
+    when 2
+      solve_level2
     end
   end
 
   def solve_level1
     DATA_LEVEL1[delete_punctuation(@question)]
+  end
+
+  def solve_level2
+    DATA_LEVEL2[@question]
   end
 
   def quiz_params
