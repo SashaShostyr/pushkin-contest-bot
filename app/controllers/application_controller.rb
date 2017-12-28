@@ -11,6 +11,6 @@ class ApplicationController < ActionController::Base
         task_id: task_id
     }
     Net::HTTP.post_form(uri, parameters)
-    binding.pry
+    render json: 'done'
   end
 end
