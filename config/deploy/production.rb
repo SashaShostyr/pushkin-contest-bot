@@ -2,7 +2,12 @@
 # ======================
 # Defines a single server with a list of roles and multiple properties.
 # You can define all roles on a single server, or split them:
+set :branch, 'master'
 set :rails_env, 'production'
+set :unicorn_env, 'production'
+
+set :puma_threads, [4, 12]
+set :puma_workers, 2
 
 server "78.155.218.137", user: "deployer", roles: %w{app db web}
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
