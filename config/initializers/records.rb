@@ -18,9 +18,9 @@ data.each do |poem|
     end
   end
 end
-#File.open('level1.json', 'w') do |f|
-  #f.write(DATA_LEVEL1.to_json)
-#end
+File.open('db/level1.json', 'w') do |f|
+  f.write(DATA_LEVEL1.to_json)
+end
 
 DATA_LEVEL2 = {}
 data_all_lines = data.map {|d| d[1]} 
@@ -32,6 +32,9 @@ data_all_lines.flatten.uniq.each do |line|
   end
 end
 
-#File.open('level2.json', 'w') do |f|
-  #f.write(DATA_LEVEL2.to_json)
-#end
+File.open('db/level2.json', 'w') do |f|
+  f.write(DATA_LEVEL2.to_json)
+end
+
+DATA_LEVEL1 = JSON.parse File.read(File.expand_path("./db/level1.json"))
+DATA_LEVEL2 = JSON.parse File.read(File.expand_path("./db/level2.json"))
