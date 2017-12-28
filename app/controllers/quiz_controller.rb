@@ -22,6 +22,8 @@ class QuizController < ApplicationController
       solve_level2
     when 3..4
       solve_level34
+    when 5
+      solve_level5
     end
   end
 
@@ -38,6 +40,17 @@ class QuizController < ApplicationController
     answers = []
     lines.each do |line|
       answers << DATA_LEVEL2[delete_punctuation(line)]
+    end
+    answers.join(',')
+  end
+
+  def solve_level5
+    answers = []
+    delete_punctuation(@question).split(' ').each do |word|
+      new_str = delete_punctuation(@question).gsub(word, "%WORD%")
+      unless DATA_LEVEL2[new_str].nil?
+        answers << DATA_LEVEL2[new_str] << word
+      end
     end
     answers.join(',')
   end
