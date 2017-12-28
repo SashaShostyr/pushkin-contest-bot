@@ -55,7 +55,7 @@ group :development do
   gem 'capistrano-rails'
   #gem 'capistrano-sidekiq'
   gem 'capistrano3-puma', github: "seuros/capistrano-puma"
-  gem 'capistrano-db-tasks'
+  #gem 'capistrano-db-tasks'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end

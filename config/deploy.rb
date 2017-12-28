@@ -7,7 +7,7 @@ set :repo_url, "git@github.com:SashaShostyr/pushkin-contest-bot.git"
 set :rvm_type, :user
 set :rvm_ruby_version, '2.4.2'
 set :deploy_to, '/var/www/PushkinContestBot/'
-set :linked_files, %w{config/database.yml}
+set :linked_files, %w{config/database.yml config/secrets.yml}
 set :linked_dirs, %w{log tmp/pids public/assets tmp/cache tmp/sockets vendor/bundle}
 set :ssh_options, { :forward_agent => true  }
 set :pty, false
