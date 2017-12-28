@@ -28,7 +28,7 @@ class QuizController < ApplicationController
   end
 
   def solve_level2
-    DATA_LEVEL2[@question]
+    DATA_LEVEL2[delete_punctuation(@question)]
   end
 
   def quiz_params

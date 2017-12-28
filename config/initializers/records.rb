@@ -28,7 +28,7 @@ data_all_lines.flatten.uniq.each do |line|
   words = delete_punctuation(line).split(' ')
   words.each do |word|
     new_line = line.sub(/#{word}/, '%WORD%')
-    DATA2[new_line] = word
+    DATA2[delete_punctuation(new_line)] = word
   end
 end
 
