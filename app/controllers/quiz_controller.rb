@@ -80,6 +80,15 @@ class QuizController < ApplicationController
     #key = FuzzyMatch.new(DATA_LEVEL6.keys).find(delete_punctuation(@question).tr(' ', '').chars.sort.join)
     #answer = DATA_LEVEL6[key]
     #answer
+    question = delete_punctuation(@question).tr(' ', '').chars.sort
+    DATA_LEVEL6.each_pair do |key, value|
+      num = (key.chars - question).count + (question - key.chars).count
+      if (num == 1 ||num == 2) && question.count == key.chars.count
+        answer = value
+        break
+      end
+    end
+    answer
   end
 
   def quiz_params
