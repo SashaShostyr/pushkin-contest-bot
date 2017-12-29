@@ -28,6 +28,8 @@ class QuizController < ApplicationController
       solve_level6
     when 7
       solve_level7
+    when 8
+      solve_level8
     end
   end
 
@@ -65,6 +67,19 @@ class QuizController < ApplicationController
 
   def solve_level7
     DATA_LEVEL6[delete_punctuation(@question).tr(' ', '').chars.sort.join]
+  end
+
+  def solve_level8
+    answer = ''
+    chars_all = delete_punctuation(@question).tr(' ','').chars.sort
+    chars_all.each_with_index do |char, index|
+      chars_all[index] = ''
+      answer =  DATA_LEVEL8[chars_all.join] unless DATA_LEVEL8[chars_all.join].nil?
+      chars_all[index] = char
+    end
+    #key = FuzzyMatch.new(DATA_LEVEL6.keys).find(delete_punctuation(@question).tr(' ', '').chars.sort.join)
+    #answer = DATA_LEVEL6[key]
+    answer
   end
 
   def quiz_params

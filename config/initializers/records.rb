@@ -47,6 +47,22 @@ File.open('db/level6.json', 'w') do |f|
   f.write(DATA6.to_json)
 end
 
+DATA8 = {}
+data_all_lines.flatten.uniq.each do |line|
+  chars_all = delete_punctuation(line).tr(' ','').chars.sort
+  chars_all.each_with_index do |char, index|
+    chars_all[index] = ''
+    key = chars_all.join
+    DATA8[key] = line
+    chars_all[index] = char
+  end
+end
+
+File.open('db/level8.json', 'w') do |f|
+  f.write(DATA8.to_json)
+end
+
 DATA_LEVEL1 = JSON.parse File.read(File.expand_path("./db/level1.json"))
 DATA_LEVEL2 = JSON.parse File.read(File.expand_path("./db/level2.json"))
 DATA_LEVEL6 = JSON.parse File.read(File.expand_path("./db/level6.json"))
+DATA_LEVEL8 = JSON.parse File.read(File.expand_path("./db/level8.json"))
