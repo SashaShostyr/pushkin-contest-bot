@@ -77,9 +77,9 @@ class QuizController < ApplicationController
       #answer =  DATA_LEVEL8[chars_all.join] unless DATA_LEVEL8[chars_all.join].nil?
       #chars_all[index] = char
     #end
-    key = FuzzyMatch.new(DATA_LEVEL6.keys).find(delete_punctuation(@question).tr(' ', '').chars.sort.join)
-    answer = DATA_LEVEL6[key]
-    answer
+    #key = FuzzyMatch.new(DATA_LEVEL6.keys).find(delete_punctuation(@question).tr(' ', '').chars.sort.join)
+    #answer = DATA_LEVEL6[key]
+    #answer
   end
 
   def quiz_params
