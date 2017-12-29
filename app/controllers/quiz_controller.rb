@@ -26,6 +26,8 @@ class QuizController < ApplicationController
       solve_level5
     when 6
       solve_level6
+    when 7
+      solve_level7
     end
   end
 
@@ -58,6 +60,10 @@ class QuizController < ApplicationController
   end
 
   def solve_level6
+    DATA_LEVEL6[delete_punctuation(@question).tr(' ', '').chars.sort.join]
+  end
+
+  def solve_level7
     DATA_LEVEL6[delete_punctuation(@question).tr(' ', '').chars.sort.join]
   end
 
