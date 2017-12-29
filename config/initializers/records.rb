@@ -43,7 +43,7 @@ data.each do |poem|
     DATA6[key] = line 
   end
 end
-File.open('level6.json', 'w') do |f|
+File.open('db/level6.json', 'w') do |f|
   f.write(DATA6.to_json)
 end
 
