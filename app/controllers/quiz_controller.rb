@@ -2,7 +2,7 @@ class QuizController < ApplicationController
   skip_before_action :verify_authenticity_token 
 
   def index
-    @questions = Question.all
+    @questions = Question.order('created_at desc').paginate(page: params[:page], per_page: 10)
   end
 
   def new

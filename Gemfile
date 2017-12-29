@@ -33,6 +33,8 @@ gem 'pg'
 gem 'json'
 gem 'pry'
 gem 'listen', '>= 3.1.5'
+gem 'will_paginate', '~> 3.1.0'
+gem 'will_paginate-bootstrap'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
