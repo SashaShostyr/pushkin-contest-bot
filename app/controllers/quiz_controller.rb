@@ -52,11 +52,18 @@ class QuizController < ApplicationController
 
   def solve_level5
     answers = []
-    delete_punctuation(@question).split(' ').each do |word|
-      new_str = delete_punctuation(@question).gsub(word, "%WORD%")
-      unless DATA_LEVEL2[new_str].nil?
-        answers << DATA_LEVEL2[new_str] << word
+    words = delete_punctuation(@question).split(' ')
+    words.each_with_index do |word, index|
+      words[index] = '%WORD%'
+      unless DATA_LEVEL2[words.join(' ')].nil?
+        answers << DATA_LEVEL2[words.join(' ')] << word
+        break
       end
+      words[index] = word
+      #new_str = delete_punctuation(@question).gsub(word, "%WORD%")
+      #unless DATA_LEVEL2[new_str].nil?
+        #answers << DATA_LEVEL2[new_str] << word
+      #end
     end
     answers.join(',')
   end
@@ -83,7 +90,7 @@ class QuizController < ApplicationController
     question = delete_punctuation(@question).tr(' ', '').chars.sort
     DATA_LEVEL6.each_pair do |key, value|
       num = (key.chars - question).count + (question - key.chars).count
-      if (num == 1 ||num == 2) && question.count == key.chars.count
+      if num == 1 || num == 2 || num == 0
         answer = value
         break
       end
